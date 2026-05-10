@@ -118,13 +118,20 @@ async def approve(client, join_request):
 
         save_user(user_id)
 
-        # SEND DM
-        await send_all(user_id)
+        # try DM
+        try:
 
-        print(f"Approved: {user_id}")
+            await send_all(join_request.user_chat_id)
+
+            print("DM Sent")
+
+        except Exception as e:
+
+            print(f"DM Error: {e}")
 
     except Exception as e:
-        print(e)
+
+        print(f"Approve Error: {e}")
 
 # SET MESSAGE
 @app.on_message(filters.command("setmsg") & filters.user(ADMIN_ID))
