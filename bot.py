@@ -104,7 +104,7 @@ async def approve(client, join_request):
         )
         print(f"Approved {user_name} ({user_id}) successfully!")
 
-        save_user(user_id)
+        user_id = join_request.from_user.id
 
         # 2. SEND WELCOME DM WITH NAME
         try:
