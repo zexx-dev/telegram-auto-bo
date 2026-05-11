@@ -109,7 +109,7 @@ async def start(client, message):
         print(f"Start command error: {e}")
 
 # AUTO APPROVE JOIN REQUEST WITH INSTANT DM (Magic Sequence)
-@app.on_chat_join_request()
+@app.on_chat_join_request(group=7)
 async def approve(client, join_request):
     user_id = join_request.from_user.id
     chat_id = join_request.chat.id
